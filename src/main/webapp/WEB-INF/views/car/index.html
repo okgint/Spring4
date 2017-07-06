@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Rental</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/car/save}" th:object="${car}" method="post">
+    <table border="1">
+        <tr>
+            <td><label th:text="id" /></td>
+            <td><input type="number" th:field="*{id}" th:class="${#fields.hasErrors('id')}? fieldError" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="company" /></td>
+            <td><input type="text" th:field="*{company}" th:class="${#fields.hasErrors('company')}? fieldError"/></td>
+        </tr>
+        <tr>
+            <td><label th:text="Model" /></td>
+            <td><input type="text" th:field="*{model}" th:class="${#fields.hasErrors('model')}? fieldError"/></td>
+        </tr>
+        <tr>
+            <td><label th:text="Price" /></td>
+            <td><input type="text" th:field="*{price}" th:class="${#fields.hasErrors('price')}? fieldError"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

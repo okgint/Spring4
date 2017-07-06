@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Model - </title>
+</head>
+<body>
+<form action="#" th:action="@{/model/save}" th:object="${model}" method="post">
+    <label th:text="name"/>
+    <input type="text" th:field="*{name}"/><br/>
+
+    <select th:field="*{id}">
+        <option th:each="manufacturer : ${manufacturers}"
+                th:value="${manufacturer.id}"
+                th:text="${manufacturer.name}">Manufacturers
+        </option>
+    </select>
+    <input type="submit" th:value="submit"/>
+</form>
+</body>
+</html>
