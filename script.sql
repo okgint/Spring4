@@ -2,6 +2,7 @@ use jpa;
 drop table if EXISTS Car;
 drop table if EXISTS Model;
 drop table if EXISTS Manufacturer;
+DROP TABLE IF EXISTS Category;
 
 CREATE TABLE Manufacturer (
   id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -21,6 +22,14 @@ CREATE TABLE Car (
   model INT         NOT NULL,
   FOREIGN KEY (model) REFERENCES Model(id)
 )engine=innodb;
+
+CREATE TABLE Category (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  description VARCHAR(50) NOT NULL,
+  url VARCHAR(50),
+  parent_id INT
+)ENGINE=innodb;
 
 /*INSERT INTO Car VALUES(1, 'Company1', 'Audi', 52642);
 INSERT INTO Car VALUES(2, 'Company2','Mercedes', 57127);
@@ -71,3 +80,8 @@ VALUES (
    FROM model
    WHERE model.name = 'Buick Regal'
 ));
+
+INSERT INTO Category (id, name, description, url, parent_id) VALUES (1, "Tutorials", "Tutorials Menu", NULL , NULL );
+INSERT INTO Category (name, description, url, parent_id) VALUES ("PHP", "PHP Tutorials", "#", 1);
+INSERT INTO Category (name, description, url, parent_id) VALUES ("Java", "Java Tutorials", "#", 1);
+INSERT INTO Category (name, description, url, parent_id) VALUES ("CSS", "CSS Tutorials", "#", 1);

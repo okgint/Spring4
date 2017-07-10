@@ -31,7 +31,7 @@ public class TestModelDao {
     public void ListModel() {
         List<Model> models = modelDao.getModel();
         assertNotNull(models);
-        assertEquals(3, models.size());
+        assertEquals(5, models.size());
     }
 
     @Test
@@ -41,7 +41,6 @@ public class TestModelDao {
         assertEquals("Ford", ford.getName());
     }
 
-    @Test
     public void insertModelWithManufacturer() {
         int ford1 = 1;
         Manufacturer ford = manufacturerDao.getManufacturer(1);
